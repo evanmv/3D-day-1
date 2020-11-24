@@ -59,7 +59,7 @@ awk 'NR==FNR { map[$4] = $1"\t"$2"\t"$3; next } { print $0,map[$1],map[$2] }' hi
 for chr in hic/bedpe/intra/*
 do
 chrname=$(basename $chr)
-cut -f 2,5,7 $chr > hic/matrix/$chrname
+cut -f 2,5,7 $chr > hic/matrix/$chrname.RAWobserved
 done
 ```
 
@@ -68,11 +68,11 @@ done
 module purge
 module load Armatus/2.2-foss-2018b
 mkdir hic/tads
-armatus -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
+armatus -N -R -r 50000 -c chr18 -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
 ```
 Note: if you get error messages here, try to see if you have installed armatus such that you can execute it as `armatus` instead of `armatus-linux-x64`.
 
-The `-r 50000` sets the bin-size to 50000 bp,  `-c chr18` specifies that only chromosome 18 should be considdered, `-S` specifies that sparse matrix format (3 column text file) is used, `-i hic/matrix/chr18` provides the input data (in matrix format), `-g .6` is the gamma-max parameter indicating the highest resolution to generate domains (often is set based on trial and error), `-o hic/tads/chr18` gives the output for the TADs.
+The parameter `-N` specifies that no normalization (ICE) is used in the input, `-R` specifies the format of the input Hi-C data (Rao format), the `-r 50000` sets the bin-size to 50000 bp, `-c chr18` specifies that only chromosome 18 should be considdered, `-i hic/matrix/chr18` provides the input data (in matrix format), `-g .6` is the gamma-max parameter indicating the highest resolution to generate domains (often is set based on trial and error), `-o hic/tads/chr18` gives the output for the TADs.
 
 **10. Since Armatus output is end-inclusive, convert to BED by adding 1 to end position**
 ```bash
