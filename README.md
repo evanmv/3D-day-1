@@ -1,19 +1,19 @@
 # 3D-day-1
-**1. Login to the Saga server:
+**1. Login to the Saga server:**
 - Show here
 
-**2. Setting up today's working directory
+**2. Setting up today's working directory**
 ```bash
 git clone https://github.com/MBV-INF4410/3D-day-1.git
 cd 3D-day-1
 ```
 
-**3. Loading and setting up HiC-Pro 
+**3. Loading and setting up HiC-Pro**
 ```bash
 module purge
 module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
 ```
-**4. Loading and setting up HiC-Pro 
+**4. Loading and setting up HiC-Pro** 
 HiC-Pro will be used to process the Hi-C data, including mapping the reads and aggregation of the contact frequencies (takes a few minutes).
 ```bash
 curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/config-hicpro.txt
@@ -31,11 +31,6 @@ To prepare for running HiC-Pro, we will need to change two lines in the `config-
 **6. Run HiC-Pro (Takes ~10 minutes)**
 ```bash
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
-```
-```diff
-! If you are stuck at this point, you can copy nesessary files to proceed with the remaining steps by:
-mkdir -p hicpro_results/hic_results/matrix/chr18/raw/50000/
-cp backup/7/* hicpro_results/hic_results/matrix/chr18/raw/50000/
 ```
 
 **7. Setup the folder structure for the HiC contacts**
