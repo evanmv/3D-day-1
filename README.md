@@ -25,11 +25,18 @@ curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/annotation/Hin
 tar -zxvf hg19_chr18/* -C hg19_chr18
 ```
 **5. Adapting the `config-hicpro.txt` file**
+To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. 
+Start by copying your current working directory to your clipboard by:
+```bash
+pwd
+```
+and copying the resulting path to your clipboard (using "Control + C" / "command + C"). We will call this '[pwd]' from now on
 
-To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
-- Add the bowtie path to line nr. 39: `BOWTIE2_IDX_PATH =` -> `BOWTIE2_IDX_PATH = [fullpath]/hg19_chr18/` where `[fullpath]` is the full path to your current working directory, i.e. the `INC-tutorial` directory (use the `pwd` command if you are uncertain about the working dir.) 
+Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
+- Add the bowtie path to line nr. 39: `BOWTIE2_IDX_PATH =` -> `BOWTIE2_IDX_PATH = [pwd]/hg19_chr18/` where `[pwd]` is the full path to your current working directory.
 - Change the reference genome on line nr. 47: `REFERENCE_GENOME =` -> `REFERENCE_GENOME = hg19_chr18`
-- XX Change restriction fragment on line nr. XX: `GENOME_FRAGMENT = HindIII_resfrag_hg19.bed`  `GENOME_FRAGMENT = [fullpath]/HindIII_resfrag_hg19.bed`, where `[fullpath]` is the full path to your current working directory, i.e. the `INC-tutorial` directory (use the `pwd` command if you are uncertain about the working dir.) 
+- Change the reference genome on line nr. 48: `GENOME_SIZE = chrom_hg19.sizes` -> `GENOME_SIZE = GENOME_SIZE = [pwd]/chrom_hg19.sizes`
+- XX Change restriction fragment on line nr. 67: `GENOME_FRAGMENT = HindIII_resfrag_hg19.bed` -> `GENOME_FRAGMENT = [pwd]/HindIII_resfrag_hg19.bed`
 - Change line nr. 89: `BIN_SIZE = 20000 40000 150000 500000 1000000` -> `BIN_SIZE = 50000 1000000`
 
 **6. Run HiC-Pro (Takes ~10 minutes)**
