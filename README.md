@@ -68,7 +68,7 @@ done
 module purge
 module load Armatus/2.2-foss-2018b
 mkdir hic/tads
-armatus-linux-x64 -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
+armatus -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
 ```
 Note: if you get error messages here, try to see if you have installed armatus such that you can execute it as `armatus` instead of `armatus-linux-x64`.
 
