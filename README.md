@@ -4,7 +4,7 @@
 
 # Setting up today's working directory
 ```bash
-git clone XXX
+git clone https://github.com/MBV-INF4410/3D-day-1.git
 ```
 
 # Loading and setting up HiC-Pro 
