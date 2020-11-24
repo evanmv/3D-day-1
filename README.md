@@ -28,7 +28,8 @@ tar -zxvf hg19_chr18/* -C hg19_chr18
 
 To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
 - Add the bowtie path to line nr. 39: `BOWTIE2_IDX_PATH =` -> `BOWTIE2_IDX_PATH = [fullpath]/hg19_chr18/` where `[fullpath]` is the full path to your current working directory, i.e. the `INC-tutorial` directory (use the `pwd` command if you are uncertain about the working dir.) 
-- Change the reference genome on 47: `REFERENCE_GENOME =` -> `REFERENCE_GENOME = hg19_chr18`
+- Change the reference genome on line nr. 47: `REFERENCE_GENOME =` -> `REFERENCE_GENOME = hg19_chr18`
+- XX Change restriction fragment on line nr. XX: `GENOME_FRAGMENT = HindIII_resfrag_hg19.bed`  `GENOME_FRAGMENT = [fullpath]/HindIII_resfrag_hg19.bed`, where `[fullpath]` is the full path to your current working directory, i.e. the `INC-tutorial` directory (use the `pwd` command if you are uncertain about the working dir.) 
 - Change line nr. 89: `BIN_SIZE = 20000 40000 150000 500000 1000000` -> `BIN_SIZE = 50000 1000000`
 
 **6. Run HiC-Pro (Takes ~10 minutes)**
@@ -53,13 +54,6 @@ do
 chrname=$(basename $chr)
 cut -f 2,5,7 $chr > hic/matrix/$chrname
 done
-```
-```diff
-!If you are stuck at this point, you can copy nesessary files to proceed with the remaining steps by:
-mkdir -p hic/bedpe/intra/
-mkdir -p hic/matrix/
-cp backup/9/bedpe/chr18 hic/bedpe/intra/
-cp backup/9/matrix/chr18 hic/matrix/
 ```
 
 **9. Running Armatus to call TADs**
