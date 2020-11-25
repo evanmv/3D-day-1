@@ -84,7 +84,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 
 ![UCSC_upload_BED](https://user-images.githubusercontent.com/5373069/100238933-1066af00-2f31-11eb-93d1-3945f8879dd6.png)
 
-- Turn on a "Pack" view of your uploaded "TADs" track by going through step 1-3 in the following visualization:
+- Turn on a "Pack" view of your uploaded "TADs" track by going through step 1-4 in the following visualization:
 ![UCSC_display_pack](https://user-images.githubusercontent.com/5373069/100244151-e9ab7700-2f36-11eb-9196-5f7262582f50.png)
 
 
