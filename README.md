@@ -1,4 +1,4 @@
-# 3D-day-1
+# 3D-day-1: Mapping and processing Hi-C data and calling Topologically Associated Domains (TADs)
 **1. Login to the Saga server:**
 - Show here
 ```bash
