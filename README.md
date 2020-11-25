@@ -79,7 +79,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 **11. Download the `hic/tads/chr18.consensus.bed` file to your local computer
 
 **12. Investigating the TADs (chr18.consensus.bed) in a genome browser**
-- Go to[<a href="http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19" target="_blank">[http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19]</a>
+- Go to <a href="http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19" target="_blank">http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19</a>
 - Upload the BED file `chr18.consensus.bed` going through step 1-8 in the following visualization:
 
 ![UCSC_upload_BED](https://user-images.githubusercontent.com/5373069/100238933-1066af00-2f31-11eb-93d1-3945f8879dd6.png)
