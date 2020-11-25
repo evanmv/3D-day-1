@@ -84,3 +84,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 
 ![UCSC_upload_BED](https://user-images.githubusercontent.com/5373069/100238933-1066af00-2f31-11eb-93d1-3945f8879dd6.png)
 - Investigate wher
+
+**13. Try to answer the following questions**
+- Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]
+- If you select "Regulation" -> "Rao 2014 Hi-C" -> "Full" you can turn on some Hi-C data visualization. Can you see a relationship between the Hi-C data and the TADs? (Remember that our TADs are from another cell type)
