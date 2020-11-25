@@ -83,7 +83,8 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 - Upload the BED file `chr18.consensus.bed` going through step 1-8 in the following visualization:
 
 ![UCSC_upload_BED](https://user-images.githubusercontent.com/5373069/100238933-1066af00-2f31-11eb-93d1-3945f8879dd6.png)
-- Investigate wher
+
+- Turn on a "Full" view of your uploaded "TADs" track
 
 **13. Try to answer the following questions**
 - Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]
