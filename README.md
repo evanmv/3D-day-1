@@ -24,6 +24,11 @@ curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/annotation/chr
 curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/annotation/HindIII_resfrag_hg19.bed
 tar -zxvf hg19_chr18/* -C hg19_chr18
 ```
+```diff
+! Look at the file chrom_hg19.sizes (hint: use `head`) and HindIII_resfrag_hg19.bed. Can you guess what these two files contain?
+```
+
+
 **5. Adapting the `config-hicpro.txt` file**
 To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. 
 Start by copying your current working directory to your clipboard by:
@@ -39,9 +44,16 @@ Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
 - Change restriction fragment on line nr. 67: `GENOME_FRAGMENT = HindIII_resfrag_hg19.bed` -> `GENOME_FRAGMENT = [pwd]/HindIII_resfrag_hg19.bed`
 - Change line nr. 89: `BIN_SIZE = 20000 40000 150000 500000 1000000` -> `BIN_SIZE = 50000 1000000`
 
+```diff
+! What do you think line number 89 in the config file specifies?
+```
+
 **6. Run HiC-Pro (Takes ~10 minutes)**
 ```bash
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
+```
+```diff
+! Look at the output from HiC-Pro. Look at the slides from the presentation to see if you can understand what is happening
 ```
 
 **7. Setup the folder structure for the HiC contacts**
@@ -62,6 +74,9 @@ chrname=$(basename $chr)
 cut -f 2,5,7 $chr > hic/matrix/$chrname
 done
 ```
+```diff
+! Compare the files hic/bedpe/intra/chr18 and hic/matrix/chr18 (hint: use `head`). What is the difference?
+```
 
 **9. Running Armatus to call TADs**
 ```bash
@@ -76,6 +91,10 @@ The parameter `-r 50000` sets the bin-size to 50000 bp,  `-c chr18` specifies th
 ```bash
 awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tads/chr18.consensus.bed
 ```
+```diff
+! Compare the files hic/tads/chr18 and hic/tads/chr18.consensus.bed. What is the difference?
+```
+
 **11. Download the `hic/tads/chr18.consensus.bed` file to your local computer
 
 **12. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
@@ -90,5 +109,10 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 
 
 **13. Try to answer the following questions**
-- Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]
-- If you select "Regulation" -> "Rao 2014 Hi-C" -> "Full" you can turn on some Hi-C data visualization. Can you see a relationship between the Hi-C data and the TADs? (Remember that our TADs are from another cell type)
+```diff
+! Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]?
+```
+
+```diff
+! If you select "Regulation" -> "Rao 2014 Hi-C" -> "Full" you can turn on some Hi-C data visualization. Can you see a relationship between the Hi-C data and the TADs? (Remember that our TADs are from another cell type)
+```
