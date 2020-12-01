@@ -11,6 +11,12 @@ git clone https://github.com/MBV-INF4410/3D-day-1.git
 cd 3D-day-1
 ```
 
+```diff
+! Do you recognize the file type in the fastq/chr18 folder?
+! Are these paired-end or single-end reads?
+! How long are the reads (hint: zcat fastq/chr18/SRR6657510_chr18_R1.fastq.gz | head)
+```
+
 **3. Loading and setting up HiC-Pro**
 ```bash
 module purge
