@@ -2,7 +2,7 @@
 **1. Login to the Saga server:**
 - Show here
 ```bash
-srun --ntasks=1 --mem-per-cpu=4G --time=2:00:00 --qos=devel --account=nn9987k --pty bash -i
+srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --qos=devel --account=nn9987k --pty bash -i
 ```
 
 **2. Setting up today's working directory**
