@@ -31,7 +31,8 @@ curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/annotation/Hin
 tar -zxvf hg19_chr18/* -C hg19_chr18
 ```
 ```diff
-! Look at the file chrom_hg19.sizes (hint: use `head`) and HindIII_resfrag_hg19.bed. Can you guess what these two files contain?
+! Look at the file chrom_hg19.sizes (hint: use `head`) and HindIII_resfrag_hg19.bed. 
+! Can you guess what these two files contain?
 ```
 
 
@@ -97,8 +98,10 @@ The parameter `-r 50000` sets the bin-size to 50000 bp,  `-c chr18` specifies th
 ```bash
 awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tads/chr18.consensus.bed
 ```
+
 ```diff
 ! Compare the files hic/tads/chr18 and hic/tads/chr18.consensus.bed. What is the difference?
+! Try to explain how the awk script above works and what it does.
 ```
 
 **11. Download the `hic/tads/chr18.consensus.bed` file to your local computer
