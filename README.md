@@ -120,5 +120,6 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ```
 
 ```diff
-! If you select "Regulation" -> "Rao 2014 Hi-C" -> "Full" you can turn on some Hi-C data visualization. Can you see a relationship between the Hi-C data and the TADs? (Remember that our TADs are from another cell type)
+! Select "Regulation" -> "Rao 2014 Hi-C" -> "Full" to turn on some Hi-C data visualization. 
+! Can you see a relationship between the Hi-C data and the TADs?
 ```
