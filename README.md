@@ -107,7 +107,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ! What is the difference between the two files?
 ```
 
-**11. Download the `hic/tads/chr18.consensus.bed` file to your local computer
+**11. Download the `hic/tads/chr18.consensus.bed` file to your local computer**
 
 **12. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
 - Go to the UCSC genome browser at  http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19
