@@ -60,7 +60,8 @@ Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ```
 ```diff
-! Look at the output from HiC-Pro. Look at the slides from the presentation to see if you can understand what is happening
+! Look at the output from HiC-Pro. 
+! Compare with the slides from the presentation to see if you can understand what is happening
 ```
 
 **7. Setup the folder structure for the HiC contacts**
@@ -71,7 +72,7 @@ mkdir -p hic/matrix
 
 **8. Convert Hi-C to BEDPE and matrix format***
 
-The output from HiC-Pro needs to be converte to [BEDPE](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format) in order to be processed further by Chrom3D, and to a matrix format in order to be compatible with the Armatus TAD caller.
+The output from HiC-Pro needs to be converted to [BEDPE](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format) in order to be processed further by Chrom3D, and to a matrix format in order to be compatible with the Armatus TAD caller.
 ```bash
 awk 'NR==FNR { map[$4] = $1"\t"$2"\t"$3; next } { print $0,map[$1],map[$2] }' hicpro_results/hic_results/matrix/chr18/raw/50000/chr18_50000_abs.bed hicpro_results/hic_results/matrix/chr18/raw/50000/chr18_50000.matrix  | awk '$4==$7' | awk '{print $4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$3}' > hic/bedpe/intra/chr18
 
@@ -82,7 +83,8 @@ cut -f 2,5,7 $chr > hic/matrix/$chrname
 done
 ```
 ```diff
-! Compare the files hic/bedpe/intra/chr18 and hic/matrix/chr18 (hint: use `head`). What is the difference?
+! Compare the files hic/bedpe/intra/chr18 and hic/matrix/chr18 (hint: use `head`). 
+! What is the difference?
 ```
 
 **9. Running Armatus to call TADs**
@@ -100,8 +102,9 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ```
 
 ```diff
-! Compare the files hic/tads/chr18 and hic/tads/chr18.consensus.bed. What is the difference?
 ! Try to explain how the awk script above works and what it does.
+! Compare the files hic/tads/chr18 and hic/tads/chr18.consensus.bed. 
+! What is the difference between the two files?
 ```
 
 **11. Download the `hic/tads/chr18.consensus.bed` file to your local computer
