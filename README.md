@@ -1,4 +1,10 @@
 # 3D-day-1: Mapping and processing Hi-C data and calling Topologically Associated Domains (TADs)
+In this exercise, you will again log in to the Saga HPC system to perform analyses. You will be:
+- Mapping and processing Hi-C sequencing reads (fastq format) from Adipose Stem Cells (using HiC-Pro)
+- Generating (raw and normalized) Hi-C contact maps from the mapped reads (using HiC-Pro)
+- Generating Topologically Associating Domains (TADs) from the Hi-C contact map
+- Visualizing and analyzing the TADs in the UCSC genome browser
+
 **1. Login to the Saga server:**
 
 ```bash
