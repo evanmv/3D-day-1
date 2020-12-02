@@ -5,6 +5,14 @@ In this exercise, you will again log in to the Saga HPC system to perform analys
 - Generating Topologically Associating Domains (TADs) from the Hi-C contact map
 - Visualizing and analyzing the TADs in the UCSC genome browser
 
+In some places, there are orange lines
+```diff
+! Like this
+```
+Here, you should stop and note down your answers to the questions asked. We will go through these in plenary later, so you can see if you understood correctly. Also note down any questions you might have.
+
+Good luck!
+
 **1. Login to the Saga server:**
 
 ```bash
