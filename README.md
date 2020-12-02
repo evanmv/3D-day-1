@@ -1,12 +1,19 @@
 # 3D-day-1: Mapping and processing Hi-C data and calling Topologically Associated Domains (TADs)
 **1. Login to the Saga server:**
-- Show here
+
+```bash
+ssh saga.sigma2.no
+```
+
+**2. Set up your own interactive environment**
+Like earlier in the week, we will use `srun` to allocate resources in an interactive enviroment:
 ```bash
 srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --qos=devel --account=nn9987k --pty bash -i
 ```
 
-**2. Setting up today's working directory**
+**3. Setting up today's working directory in your home directory**
 ```bash
+cd
 git clone https://github.com/MBV-INF4410/3D-day-1.git
 cd 3D-day-1
 ```
@@ -17,12 +24,12 @@ cd 3D-day-1
 ! How long are the reads (hint: zcat fastq/chr18/SRR6657510_chr18_R1.fastq.gz | head)
 ```
 
-**3. Loading and setting up HiC-Pro**
+**4. Loading and setting up HiC-Pro**
 ```bash
 module purge
 module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
 ```
-**4. Loading and setting up HiC-Pro** 
+**5. Loading and setting up HiC-Pro** 
 HiC-Pro will be used to process the Hi-C data, including mapping the reads and aggregation of the contact frequencies (takes a few minutes).
 ```bash
 curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/config-hicpro.txt
@@ -36,7 +43,7 @@ tar -zxvf hg19_chr18/* -C hg19_chr18
 ```
 
 
-**5. Adapting the `config-hicpro.txt` file**
+**6. Adapting the `config-hicpro.txt` file**
 To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. 
 Start by copying your current working directory to your clipboard by:
 ```bash
@@ -55,7 +62,7 @@ Use a text-editor (like emacs, vim, nano, (or TextEdit [MacOS]) to:
 ! What do you think line number 89 in the config file specifies?
 ```
 
-**6. Run HiC-Pro (Takes ~10 minutes)**
+**7. Run HiC-Pro (Takes ~10 minutes)**
 ```bash
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ```
@@ -64,13 +71,13 @@ HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ! Compare with the slides from the presentation to see if you can understand what is happening
 ```
 
-**7. Setup the folder structure for the HiC contacts**
+**8. Setup the folder structure for the HiC contacts**
 ```bash
 mkdir -p hic/bedpe/intra
 mkdir -p hic/matrix
 ```
 
-**8. Convert Hi-C to BEDPE and matrix format***
+**9. Convert Hi-C to BEDPE and matrix format***
 
 The output from HiC-Pro needs to be converted to [BEDPE](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format) in order to be processed further by Chrom3D, and to a matrix format in order to be compatible with the Armatus TAD caller.
 ```bash
@@ -87,7 +94,7 @@ done
 ! What is the difference?
 ```
 
-**9. Running Armatus to call TADs**
+**10. Running Armatus to call TADs**
 ```bash
 module purge
 module load Armatus/2.3-foss-2018b
@@ -96,7 +103,7 @@ armatus -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
 ```
 The parameter `-r 50000` sets the bin-size to 50000 bp,  `-c chr18` specifies that only chromosome 18 should be considdered, `-S` specifies that sparse matrix format (3 column text file) is used, `-i hic/matrix/chr18` provides the input data (in matrix format), `-g .6` is the gamma-max parameter indicating the highest resolution to generate domains (often is set based on trial and error), `-o hic/tads/chr18` gives the output for the TADs.
 
-**10. Since Armatus output is end-inclusive, convert to BED by adding 1 to end position**
+**11. Since Armatus output is end-inclusive, convert to BED by adding 1 to end position**
 ```bash
 awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tads/chr18.consensus.bed
 ```
@@ -107,9 +114,9 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ! What is the difference between the two files?
 ```
 
-**11. Download the `hic/tads/chr18.consensus.bed` file to your local computer**
+**12. Download the `hic/tads/chr18.consensus.bed` file to your local computer**
 
-**12. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
+**13. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
 - Go to the UCSC genome browser at  http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19
 - Upload the BED file `chr18.consensus.bed` going through step 1-8 in the following visualization:
 
@@ -120,7 +127,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ![UCSC_display_pack](https://user-images.githubusercontent.com/5373069/100244151-e9ab7700-2f36-11eb-9196-5f7262582f50.png)
 
 
-**13. Try to answer the following questions**
+**14. Try to answer the following questions**
 ```diff
 ! Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]?
 ```
