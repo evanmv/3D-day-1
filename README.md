@@ -76,7 +76,7 @@ nano config-hicpro.txt
 - Change line nr. 89: `BIN_SIZE = 20000 40000 150000 500000 1000000` -> `BIN_SIZE = 50000 1000000`
 - Save your changes ("Control + O" / [WriteOut])
 - Exit with Control + X
-- Lost? To see which line you are at, you can use Control + W. If you have forgotten how to use `nano`, go back to the material from the first week)
+- Lost? To see which line you are at, you can use Control + W. If you have forgotten how to use `nano`, go back to the material from the first week
 
 ```diff
 ! What do you think line number 89 in the config file specifies?
