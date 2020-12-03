@@ -19,13 +19,7 @@ Good luck!
 ssh saga.sigma2.no
 ```
 
-**2. Set up your own interactive environment**
-Like earlier in the week, we will use `srun` to allocate resources in an interactive enviroment:
-```bash
-srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --account=nn9987k --pty bash -i
-```
-
-**3. Setting up today's working directory in your home directory**
+**2. Setting up today's working directory in your home directory**
 ```bash
 cd
 git clone https://github.com/MBV-INF4410/3D-day-1.git
@@ -39,12 +33,7 @@ cd 3D-day-1
 ! Another hint: To count the number of nucleotides in the read, you could use R-command `nchar`
 ```
 
-**4. Loading and setting up HiC-Pro**
-```bash
-module purge
-module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
-```
-**5. Loading and setting up HiC-Pro** 
+**3. Loading and setting up HiC-Pro** 
 HiC-Pro will be used to process the Hi-C data, including mapping the reads and aggregation of the contact frequencies (takes a few minutes).
 ```bash
 curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/config-hicpro.txt
@@ -57,8 +46,7 @@ tar -zxvf hg19_chr18/* -C hg19_chr18
 ! Can you guess what these two files contain?
 ```
 
-
-**6. Adapting the `config-hicpro.txt` file**
+**4. Adapting the `config-hicpro.txt` file**
 To prepare for running HiC-Pro, we will need to change two lines in the `config-hicpro.txt` file. 
 Start by copying your current working directory to your clipboard by:
 ```bash
@@ -83,10 +71,20 @@ nano config-hicpro.txt
 ! What do you think line number 89 in the config file specifies?
 ```
 
-**7. Run HiC-Pro (Takes ~10 minutes)**
+**5. Set up your own interactive environment**
+Like earlier in the week, we will use `srun` to allocate resources in an interactive enviroment:
+```bash
+srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --account=nn9987k --pty bash -i
+```
+
+**6. Load HiC-Pro**
 ```bash
 module purge
 module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
+```
+
+**7. Run HiC-Pro (Takes ~10 minutes)**
+```bash
 
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ```
