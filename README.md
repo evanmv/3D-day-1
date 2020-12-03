@@ -33,7 +33,7 @@ cd 3D-day-1
 ! Another hint: To count the number of nucleotides in the read, you could use R-command `nchar`
 ```
 
-**3. Loading and setting up HiC-Pro** 
+**3. Setting up nescessary files for running HiC-Pro** 
 HiC-Pro will be used to process the Hi-C data, including mapping the reads and aggregation of the contact frequencies (takes a few minutes).
 ```bash
 curl -O https://raw.githubusercontent.com/nservant/HiC-Pro/master/config-hicpro.txt
