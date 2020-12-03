@@ -85,6 +85,9 @@ nano config-hicpro.txt
 
 **7. Run HiC-Pro (Takes ~10 minutes)**
 ```bash
+module purge
+module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
+
 HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ```
 ```diff
