@@ -36,6 +36,7 @@ cd 3D-day-1
 ! Do you recognize the file type in the fastq/chr18 folder?
 ! Are these paired-end or single-end reads?
 ! How long are the reads (hint: zcat fastq/chr18/SRR6657510_chr18_R1.fastq.gz | head)
+! Another hint: To count the number of nucleotides in the read, you could use R-command `nchar`
 ```
 
 **4. Loading and setting up HiC-Pro**
