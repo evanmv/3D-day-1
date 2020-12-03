@@ -149,7 +149,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 
 **14. Try to answer the following questions**
 ```diff
-! Do you see a relationship between the TADs and genes? [if so, what kind(s) of relationship(s)]?
+! Do you see a relationship between the borders of the TADs (the parts where the line breaks up/down) and the genes? [if so, what kind(s) of relationship(s)]?
 ```
 
 ```diff
