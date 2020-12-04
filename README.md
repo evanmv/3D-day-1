@@ -158,3 +158,16 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ! Select "Regulation" -> "Rao 2014 Hi-C" -> "Full" to turn on some Hi-C data visualization. 
 ! Can you see a relationship between the Hi-C data and the TADs?
 ```
+**Bonus: Visualize the Hi-C data as a heatmap**
+This is how you can generate a figure (PNG) visualizing the Hi-C data we generated as a heatmap:
+```bash
+git clone https://github.com/kcakdemir/HiCPlotter.git
+module purge
+module load Python/2.7.15-intel-2018b
+module load matplotlib/2.2.3-intel-2018b-Python-2.7.15
+
+python HiCPlotter/HiCPlotter.py -f hicpro_results/hic_results/matrix/chr18/iced/50000/chr18_50000_iced.matrix -o example -r 50000 -tri 1 -bed hicpro_results/hic_results/matrix/chr18/raw/50000/chr18_50000_abs.bed -n chr18 -chr chr18 -ptr 1 -hmc 1 -up 1
+ 
+mv "example-chr18.ofBins(0-1561).50K.png" chr18.png
+```
+Download `chr18.png` to your own computer and visualize it there.
