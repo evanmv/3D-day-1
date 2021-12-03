@@ -99,7 +99,7 @@ mkdir -p hic/bedpe/intra
 mkdir -p hic/matrix
 ```
 
-**9. Convert Hi-C to BEDPE and matrix format***
+**9. Convert Hi-C to BEDPE and matrix format**
 
 The output from HiC-Pro needs to be converted to [BEDPE](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format) in order to be processed further by Chrom3D, and to a matrix format in order to be compatible with the Armatus TAD caller.
 ```bash
