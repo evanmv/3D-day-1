@@ -74,7 +74,7 @@ nano config-hicpro.txt
 **5. Set up your own interactive environment**
 Like earlier in the week, we will use `srun` to allocate resources in an interactive enviroment:
 ```bash
-srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --account=nn9987k --pty bash -i
+srun --ntasks=1 --mem-per-cpu=4G --time=3:00:00 --account=nn9986k --pty bash -i
 ```
 
 **6. Load HiC-Pro**
