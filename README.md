@@ -60,7 +60,7 @@ nano config-hicpro.txt
 ```
 - Add the bowtie path to line nr. 39: `BOWTIE2_IDX_PATH =` -> `BOWTIE2_IDX_PATH = [pwd]/hg19_chr18/` where `[pwd]` is the full path to your current working directory. Paste the [pwd] in by "Control + V"
 - Change the reference genome on line nr. 47: `REFERENCE_GENOME =` -> `REFERENCE_GENOME = hg19_chr18`
-- Change the reference genome on line nr. 48: `GENOME_SIZE = chrom_hg19.sizes` -> `GENOME_SIZE = GENOME_SIZE = [pwd]/chrom_hg19.sizes`
+- Change the reference genome on line nr. 48: `GENOME_SIZE = chrom_hg19.sizes` -> `GENOME_SIZE = [pwd]/chrom_hg19.sizes`
 - Change restriction fragment on line nr. 67: `GENOME_FRAGMENT = HindIII_resfrag_hg19.bed` -> `GENOME_FRAGMENT = [pwd]/HindIII_resfrag_hg19.bed`
 - Change line nr. 89: `BIN_SIZE = 20000 40000 150000 500000 1000000` -> `BIN_SIZE = 50000 1000000`
 - Save your changes ("Control + O" / [WriteOut])
