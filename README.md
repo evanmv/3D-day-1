@@ -132,7 +132,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 
 ```diff
 ! Try to explain how the awk script above works and what it does.
-! Compare the files hic/tads/chr18 and hic/tads/chr18.consensus.bed. 
+! Compare the files hic/tads/chr18.consensus.txt and hic/tads/chr18.consensus.bed
 ! What is the difference between the two files?
 ```
 
