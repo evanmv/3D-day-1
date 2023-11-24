@@ -1,5 +1,5 @@
 # Mapping and processing Hi-C data and calling Topologically Associated Domains (TADs)
-In this exercise, you will again log in to the Saga HPC system to perform analyses. You will be:
+In this exercise, you will again log in to the Fox HPC system to perform analyses. You will be:
 - Mapping and processing Hi-C sequencing reads (fastq format) from Adipose Stem Cells (using HiC-Pro)
 - Generating (raw and normalized) Hi-C contact maps from the mapped reads (using HiC-Pro)
 - Generating Topologically Associating Domains (TADs) from the Hi-C contact map
