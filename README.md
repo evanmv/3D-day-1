@@ -13,10 +13,10 @@ Here, you should stop and note down your answers to the questions asked. We will
 
 Good luck!
 
-**1. Login to the Saga server:**
+**1. Login to the Fox HPC cluster:**
 
 ```bash
-ssh saga.sigma2.no
+ssh [ec-username]@fox.educloud.no
 ```
 
 **2. Setting up today's working directory in your home directory**
@@ -74,13 +74,13 @@ nano config-hicpro.txt
 **5. Set up your own interactive environment**
 Like earlier in the week, we will use `sallic` to allocate resources in an interactive enviroment:
 ```bash
-salloc --ntasks=1 --mem-per-cpu=4G --time=03:00:00  --account=nn9989k
+salloc --ntasks=1 --mem-per-cpu=4G --time=03:00:00  --account=ec34
 ```
 
 **6. Load HiC-Pro**
 ```bash
 module purge
-module load HiC-Pro/2.11.4-foss-2019a-Python-2.7.15
+module load HiC-Pro/2.11.4-foss-2022a
 ```
 
 **7. Run HiC-Pro (Takes ~10 minutes)**
@@ -119,7 +119,7 @@ done
 **10. Running Armatus to call TADs**
 ```bash
 module purge
-module load Armatus/2.3-foss-2018b
+module load Armatus/2.3-GCC-11.3.0
 mkdir hic/tads
 armatus -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
 ```
