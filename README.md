@@ -77,13 +77,7 @@ Like earlier in the week, we will use `sallic` to allocate resources in an inter
 salloc --ntasks=1 --mem-per-cpu=4G --time=03:00:00  --account=ec34
 ```
 
-**6. Load HiC-Pro**
-```bash
-module purge
-module load HiC-Pro/2.11.4-foss-2022a
-```
-
-**7. Run HiC-Pro using a container called hicpro_2.11.3_ubuntu.img (Takes ~15 minutes)**
+**6. Run HiC-Pro using a container called hicpro_2.11.3_ubuntu.img (Takes ~15 minutes)**
 ```bash
 
 apptainer exec /projects/ec34/biosin5410/HiC/hicpro_2.11.3_ubuntu.img HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
@@ -93,13 +87,13 @@ apptainer exec /projects/ec34/biosin5410/HiC/hicpro_2.11.3_ubuntu.img HiC-Pro --
 ! Compare with the slides from the presentation to see if you can understand what is happening
 ```
 
-**8. Setup the folder structure for the HiC contacts**
+**7. Setup the folder structure for the HiC contacts**
 ```bash
 mkdir -p hic/bedpe/intra
 mkdir -p hic/matrix
 ```
 
-**9. Convert Hi-C to BEDPE and matrix format**
+**8. Convert Hi-C to BEDPE and matrix format**
 
 The output from HiC-Pro needs to be converted to [BEDPE](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format) in order to be processed further by Chrom3D, and to a matrix format in order to be compatible with the Armatus TAD caller.
 ```bash
@@ -116,7 +110,7 @@ done
 ! What is the difference?
 ```
 
-**10. Running Armatus to call TADs**
+**9. Running Armatus to call TADs**
 ```bash
 module purge
 module load Armatus/2.3-GCC-11.3.0
@@ -125,7 +119,7 @@ armatus -r 50000 -c chr18 -S -i hic/matrix/chr18 -g .6 -o hic/tads/chr18
 ```
 The parameter `-r 50000` sets the bin-size to 50000 bp,  `-c chr18` specifies that only chromosome 18 should be considdered, `-S` specifies that sparse matrix format (3 column text file) is used, `-i hic/matrix/chr18` provides the input data (in matrix format), `-g .6` is the gamma-max parameter indicating the highest resolution to generate domains (often is set based on trial and error), `-o hic/tads/chr18` gives the output for the TADs.
 
-**11. Since Armatus output is end-inclusive, convert to BED by adding 1 to end position**
+**10. Since Armatus output is end-inclusive, convert to BED by adding 1 to end position**
 ```bash
 awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tads/chr18.consensus.bed
 ```
@@ -136,9 +130,9 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ! What is the difference between the two files?
 ```
 
-**12. Download the `hic/tads/chr18.consensus.bed` file to your local computer**
+**11. Download the `hic/tads/chr18.consensus.bed` file to your local computer**
 
-**13. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
+**12. Investigating the TADs (chr18.consensus.bed) in the UCSC genome browser**
 - Go to the UCSC genome browser at  http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19
 - Upload the BED file `chr18.consensus.bed` going through step 1-8 in the following visualization:
 
@@ -149,7 +143,7 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ![UCSC_display_pack](https://user-images.githubusercontent.com/5373069/100244151-e9ab7700-2f36-11eb-9196-5f7262582f50.png)
 
 
-**14. Try to answer the following questions**
+**13. Try to answer the following questions**
 ```diff
 ! Do you see a relationship between the borders of the TADs (the parts where the line breaks up/down) and the genes? [if so, what kind(s) of relationship(s)]?
 ```
