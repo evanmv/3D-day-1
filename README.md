@@ -83,10 +83,10 @@ module purge
 module load HiC-Pro/2.11.4-foss-2022a
 ```
 
-**7. Run HiC-Pro (Takes ~10 minutes)**
+**7. Run HiC-Pro using a container called hicpro_2.11.3_ubuntu.img (Takes ~15 minutes)**
 ```bash
 
-HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
+apptainer exec /projects/ec34/biosin5410/HiC/hicpro_2.11.3_ubuntu.img HiC-Pro --input fastq --output hicpro_results --conf config-hicpro.txt
 ```
 ```diff
 ! Look at the output from HiC-Pro. 
