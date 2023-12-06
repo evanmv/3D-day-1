@@ -152,21 +152,25 @@ awk '{printf("%s\t%i\t%i\n",$1,$2,$3+1)}' hic/tads/chr18.consensus.txt > hic/tad
 ! Select "Regulation" -> "Rao 2014 Hi-C" -> "Full" to turn on some Hi-C data visualization. 
 ! Can you see a relationship between the Hi-C data and the TADs?
 ```
-**Bonus: Visualize the Hi-C data as a heatmap**
+**Bonus: 14. Visualize the Hi-C data as a heatmap**
+
 A classical scenario in bioinformatics is that a tool has been build with libraries not available on your current HPC system. Unless the developer of the tool is already providing a container for us, it may seem impossible to run the tool on the HPC system. But fear not! With apptainer, we can easily deploy environments from existing images, An Apptainer container can e.g. easily built with the 'build' command, for example from existing containers with the environment we need. For this bonus exercise, we need an older version of python (Python2.7), and a library called matplotlib. Someone has already made a container with these requirements, and this can be made into an apptainer container with: apptainer build python-healpy.sif docker://mwirtz/python2.7-healpy
 Do not do this yourself, this has been done already, and a container is available at /projects/ec34/biosin5410/HiC/python-healpy.sif 
 
+First, clone the `HiCPlotter` tool that we need for creating visualizations of Hi-C data:
 ```bash
 module purge
 git clone https://github.com/kcakdemir/HiCPlotter.git
 ```
-We can run interactively within a container, 'python-healpy.sif ' already contains Python2.7 and matplotlib:
+The tool requires python2.7 which is not available on Fox, but we can run interactively within a container (`python-healpy.sif`) which already contains Python2.7 and matplotlib:
 ```bash
 apptainer shell /projects/ec34/biosin5410/HiC/python-healpy.sif 
 ```
- Once inside the interactive shellm we can use the Python2.7-program HiCPlotter:
+ Once inside the interactive apptainer shell we can use the Python2.7-program HiCPlotter:
 ```bash 
 python HiCPlotter/HiCPlotter.py -f hicpro_results/hic_results/matrix/chr18/iced/50000/chr18_50000_iced.matrix -o example -r 50000 -tri 1 -bed hicpro_results/hic_results/matrix/chr18/raw/50000/chr18_50000_abs.bed -n chr18 -chr chr18 -ptr 1 -hmc 1 -up 1
 mv "example-chr18.ofBins(0-1561).50K.png" chr18.png
 ```
+use the command `exit` to exit the apptainer interactive shell
+
 Download `chr18.png` to your own computer and visualize it there.
