@@ -159,6 +159,7 @@ Do not do this yourself, this has been done already been done, and a container i
 ```bash
 module purge
 git clone https://github.com/kcakdemir/HiCPlotter.git
+```
 
 # Run interactively within a container, with Python2.7 and matplotlib:
 apptainer shell /projects/ec34/biosin5410/HiC/python-healpy.sif 
