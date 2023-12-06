@@ -159,10 +159,10 @@ Do not do this yourself, this has been done already been done, and a container i
 ```bash
 module purge
 git clone https://github.com/kcakdemir/HiCPlotter.git
-```
 
 # Run interactively within a container, with Python2.7 and matplotlib:
 apptainer shell /projects/ec34/biosin5410/HiC/python-healpy.sif 
+```
 ```bash
 
 python HiCPlotter/HiCPlotter.py -f hicpro_results/hic_results/matrix/chr18/iced/50000/chr18_50000_iced.matrix -o example -r 50000 -tri 1 -bed hicpro_results/hic_results/matrix/chr18/raw/50000/chr18_50000_abs.bed -n chr18 -chr chr18 -ptr 1 -hmc 1 -up 1
