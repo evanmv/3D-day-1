@@ -1,0 +1,77 @@
+The files in the fastq/chr18 folder are g-zipped fastq files. 
+Paired-end reads (R1 and R2) for each. 
+
+# Read length
+76 nt
+
+# # of reads
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657510_chr18_R1.fastq.gz 
+80783
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657510_chr18_R2.fastq.gz 
+82582
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657511_chr18_R1.fastq.gz 
+93127
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657511_chr18_R2.fastq.gz 
+95220
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657512_chr18_R1.fastq.gz 
+81257
+[ec-evanmv@login-3 chr18]$ grep -c "@" SRR6657512_chr18_R2.fastq.gz 
+82838
+
+# chrom_hg19.sizes
+Shows the total size of chromosomes
+
+# HindIII_resfrag_hg19.bed
+Shows the size of fragments after HindIII restriction digest.
+
+#Line 89 specifies the bin size, 500kb and 1mb
+
+#BEDPE and matrix coversion output 
+bash-5.1$ head bedpe/intra/chr18 
+chr18	0	500000	chr18	0	500000	4032
+chr18	0	500000	chr18	500000	1000000	2298
+chr18	0	500000	chr18	1000000	1500000	221
+chr18	0	500000	chr18	1500000	2000000	118
+chr18	0	500000	chr18	2000000	2500000	218
+chr18	0	500000	chr18	2500000	3000000	421
+chr18	0	500000	chr18	3000000	3500000	175
+chr18	0	500000	chr18	3500000	4000000	142
+chr18	0	500000	chr18	4000000	4500000	91
+chr18	0	500000	chr18	4500000	5000000	36
+bash-5.1$ head matrix/chr18 
+0	0	4032
+0	500000	2298
+0	1000000	221
+0	1500000	118
+0	2000000	218
+0	2500000	421
+0	3000000	175
+0	3500000	142
+0	4000000	91
+0	4500000	36
+bash-5.1$ 
+
+#Looks like coverting to .bed rounded the values 
+bash-5.1$ head hic/tads/chr18.consensus.txt
+chr18	0	14999999
+chr18	18500000	19499999
+chr18	19500000	20999999
+chr18	21000000	21999999
+chr18	22000000	28999999
+chr18	29000000	45999999
+chr18	46000000	46999999
+chr18	47000000	75999999
+bash-5.1$ head hic/tads/chr18.consensus.bed 
+chr18	0	15000000
+chr18	18500000	19500000
+chr18	19500000	21000000
+chr18	21000000	22000000
+chr18	22000000	29000000
+chr18	29000000	46000000
+chr18	46000000	47000000
+chr18	47000000	76000000
+
+#In UCSC Genome browser -- There are many genes in each of the identified TADs. There are also genes that seem to span TAD junctions, but the regulatory elements would probably only come from one (whichever contains the upstream portion). 
+
+#The TADs correspond very nicely to the "Rao 2014 Hi-C" data
+
