@@ -51,6 +51,8 @@ bash-5.1$ head matrix/chr18
 0	4500000	36
 bash-5.1$ 
 
+#Awk "one liner" adds 1 to end position since armadus output is end inclusive. (eg. counts line end as a character)
+
 #Looks like coverting to .bed rounded the values 
 bash-5.1$ head hic/tads/chr18.consensus.txt
 chr18	0	14999999
