@@ -24,7 +24,7 @@ Shows the total size of chromosomes
 # HindIII_resfrag_hg19.bed
 Shows the size of fragments after HindIII restriction digest.
 
-#Line 89 specifies the bin size, 500kb and 1mb
+#Line 89 specifies the bin size, 500kb and 1mb  * Should have been 50kb
 
 #BEDPE and matrix coversion output 
 bash-5.1$ head bedpe/intra/chr18 
